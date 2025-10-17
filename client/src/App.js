@@ -15,6 +15,12 @@ import CaseDetail from './pages/CaseDetail';
 import Services from './pages/Services';
 import Messages from './pages/Messages';
 import Header from './components/Header';
+import HarmReductionCatalog from './pages/HarmReductionCatalog';
+import HarmReductionProductDetail from './pages/HarmReductionProductDetail';
+import HarmReductionCheckout from './pages/HarmReductionCheckout';
+import HarmReductionOrderSuccess from './pages/HarmReductionOrderSuccess';
+import HarmReductionAdmin from './pages/HarmReductionAdmin';
+import HarmReductionOrderDetail from './pages/HarmReductionOrderDetail';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -152,6 +158,60 @@ function App() {
             element={
               isAuthenticated ? 
               <Messages user={user} /> : 
+              <Navigate to="/login" />
+            }
+          />
+          
+          <Route
+            path="/harm-reduction"
+            element={
+              isAuthenticated ? 
+              <HarmReductionCatalog user={user} /> : 
+              <Navigate to="/login" />
+            }
+          />
+          
+          <Route
+            path="/harm-reduction/products/:id"
+            element={
+              isAuthenticated ? 
+              <HarmReductionProductDetail user={user} /> : 
+              <Navigate to="/login" />
+            }
+          />
+          
+          <Route
+            path="/harm-reduction/checkout"
+            element={
+              isAuthenticated ? 
+              <HarmReductionCheckout user={user} /> : 
+              <Navigate to="/login" />
+            }
+          />
+          
+          <Route
+            path="/harm-reduction/order-success"
+            element={
+              isAuthenticated ? 
+              <HarmReductionOrderSuccess user={user} /> : 
+              <Navigate to="/login" />
+            }
+          />
+          
+          <Route
+            path="/harm-reduction/admin"
+            element={
+              isAuthenticated ? 
+              <HarmReductionAdmin user={user} /> : 
+              <Navigate to="/login" />
+            }
+          />
+          
+          <Route
+            path="/harm-reduction/orders/:id"
+            element={
+              isAuthenticated ? 
+              <HarmReductionOrderDetail user={user} /> : 
               <Navigate to="/login" />
             }
           />

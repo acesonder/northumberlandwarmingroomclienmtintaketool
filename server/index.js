@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Database initialization
 const db = require('./database/init');
+// Seed harm reduction data
+require('./database/seedHarmReduction');
 
 // Routes
 const authRoutes = require('./routes/auth');
@@ -22,6 +24,7 @@ const assessmentRoutes = require('./routes/assessments');
 const caseRoutes = require('./routes/cases');
 const serviceRoutes = require('./routes/services');
 const messageRoutes = require('./routes/messages');
+const harmReductionRoutes = require('./routes/harmReduction');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/clients', clientRoutes);
@@ -29,6 +32,7 @@ app.use('/api/assessments', assessmentRoutes);
 app.use('/api/cases', caseRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/messages', messageRoutes);
+app.use('/api/harm-reduction', harmReductionRoutes);
 
 // Serve static files from React app in production
 if (process.env.NODE_ENV === 'production') {

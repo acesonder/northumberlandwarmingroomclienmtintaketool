@@ -48,6 +48,11 @@ function Header({ user, onLogout }) {
                 Messages
               </Link>
             </li>
+            <li>
+              <Link to="/harm-reduction" className={`nav-link ${location.pathname.startsWith('/harm-reduction') ? 'active' : ''}`}>
+                🏥 Harm Reduction
+              </Link>
+            </li>
           </ul>
         </nav>
         

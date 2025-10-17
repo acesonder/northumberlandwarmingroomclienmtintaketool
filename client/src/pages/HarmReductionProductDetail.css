@@ -1,0 +1,268 @@
+/* Mobile-first Product Detail Page */
+.product-detail {
+  max-width: 100%;
+  padding: 1rem;
+  min-height: 100vh;
+  background: #f7fafc;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: #4a5568;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #f7fafc;
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.product-detail-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.product-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.product-icon-large {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.product-info h1 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.product-category {
+  color: #718096;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.product-stock-status {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.in-stock {
+  color: #48bb78;
+}
+
+.out-of-stock {
+  color: #f56565;
+}
+
+.product-description-section,
+.product-guide-section,
+.product-safety-section {
+  margin-bottom: 2rem;
+}
+
+.product-description-section h2,
+.product-guide-section h2,
+.product-safety-section h2 {
+  font-size: 1.3rem;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.product-description-section p {
+  color: #4a5568;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.guide-content {
+  background: #f7fafc;
+  border-left: 4px solid #667eea;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.guide-step {
+  color: #2d3748;
+  line-height: 1.8;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.guide-step:before {
+  content: '▸ ';
+  color: #667eea;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.safety-content {
+  background: #fff5f5;
+  border-left: 4px solid #f56565;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.safety-content p {
+  color: #742a2a;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+.product-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-add-to-order {
+  flex: 1;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-add-to-order:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-add-to-order:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.help-section {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.help-section h3 {
+  font-size: 1.3rem;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+}
+
+.help-section > p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.help-info {
+  background: #f7fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #48bb78;
+}
+
+.help-info p {
+  color: #2d3748;
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.error-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.error-container p {
+  color: #f56565;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.error-container button {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .product-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .product-detail-card {
+    padding: 2.5rem;
+  }
+
+  .product-header {
+    flex-direction: row;
+    text-align: left;
+    gap: 2rem;
+  }
+
+  .product-icon-large {
+    font-size: 6rem;
+    margin-bottom: 0;
+  }
+
+  .product-info {
+    flex: 1;
+  }
+
+  .product-info h1 {
+    font-size: 2.5rem;
+  }
+
+  .guide-content,
+  .safety-content {
+    padding: 1.5rem;
+  }
+
+  .guide-step {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .product-detail {
+    max-width: 1000px;
+  }
+}

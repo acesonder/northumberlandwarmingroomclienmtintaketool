@@ -164,6 +164,96 @@ function initializeTables() {
     )
   `);
 
+  // Harm reduction products table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS harm_reduction_products (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      description TEXT,
+      category TEXT NOT NULL CHECK(category IN ('needles', 'safe_injection', 'safer_sex', 'overdose_prevention', 'wound_care', 'other')),
+      icon TEXT,
+      image_url TEXT,
+      usage_guide TEXT,
+      safety_info TEXT,
+      quantity_in_stock INTEGER DEFAULT 0,
+      reorder_level INTEGER DEFAULT 10,
+      is_active BOOLEAN DEFAULT 1,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
+  // Harm reduction inventory log table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS harm_reduction_inventory_log (
+      id TEXT PRIMARY KEY,
+      product_id TEXT NOT NULL,
+      change_type TEXT NOT NULL CHECK(change_type IN ('restock', 'adjustment', 'order', 'damage', 'expired')),
+      quantity_change INTEGER NOT NULL,
+      previous_quantity INTEGER NOT NULL,
+      new_quantity INTEGER NOT NULL,
+      notes TEXT,
+      updated_by TEXT NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (product_id) REFERENCES harm_reduction_products(id),
+      FOREIGN KEY (updated_by) REFERENCES users(id)
+    )
+  `);
+
+  // Harm reduction orders table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS harm_reduction_orders (
+      id TEXT PRIMARY KEY,
+      client_id TEXT,
+      order_type TEXT NOT NULL CHECK(order_type IN ('pickup', 'delivery')),
+      status TEXT DEFAULT 'pending' CHECK(status IN ('pending', 'confirmed', 'ready', 'in_transit', 'completed', 'cancelled')),
+      fulfillment_date DATETIME,
+      fulfillment_time_slot TEXT,
+      delivery_address TEXT,
+      delivery_notes TEXT,
+      assigned_to TEXT,
+      total_items INTEGER DEFAULT 0,
+      completed_at DATETIME,
+      cancelled_reason TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (client_id) REFERENCES clients(id),
+      FOREIGN KEY (assigned_to) REFERENCES users(id)
+    )
+  `);
+
+  // Harm reduction order items table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS harm_reduction_order_items (
+      id TEXT PRIMARY KEY,
+      order_id TEXT NOT NULL,
+      product_id TEXT NOT NULL,
+      quantity INTEGER NOT NULL,
+      fulfilled_quantity INTEGER DEFAULT 0,
+      notes TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (order_id) REFERENCES harm_reduction_orders(id),
+      FOREIGN KEY (product_id) REFERENCES harm_reduction_products(id)
+    )
+  `);
+
+  // Staff availability schedule table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS staff_availability (
+      id TEXT PRIMARY KEY,
+      staff_id TEXT NOT NULL,
+      day_of_week TEXT NOT NULL CHECK(day_of_week IN ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')),
+      start_time TEXT NOT NULL,
+      end_time TEXT NOT NULL,
+      is_active BOOLEAN DEFAULT 1,
+      location TEXT DEFAULT 'Cobourg, Ontario, Canada',
+      notes TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (staff_id) REFERENCES users(id)
+    )
+  `);
+
   console.log('Database tables initialized successfully');
 }
 
