@@ -1,0 +1,281 @@
+/* Order Detail Page */
+.order-detail-page {
+  max-width: 100%;
+  padding: 1rem;
+  min-height: 100vh;
+  background: #f7fafc;
+}
+
+.order-detail-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.order-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.order-header h1 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+}
+
+.order-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 15px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.order-type {
+  font-size: 1rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.order-date {
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h2 {
+  font-size: 1.3rem;
+  color: #2d3748;
+  margin: 0 0 1rem 0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.info-item {
+  background: #f7fafc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.info-item label {
+  display: block;
+  font-weight: 600;
+  color: #718096;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-item p {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1rem;
+}
+
+.anonymous {
+  color: #718096;
+  font-style: italic;
+}
+
+.items-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.item-card {
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.item-icon {
+  font-size: 2rem;
+}
+
+.item-info h3 {
+  font-size: 1.1rem;
+  color: #2d3748;
+  margin: 0 0 0.25rem 0;
+}
+
+.item-info p {
+  margin: 0;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-action {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-action.btn-success {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.btn-action.btn-success:hover {
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
+}
+
+.btn-action.btn-danger {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+}
+
+.btn-action.btn-danger:hover {
+  box-shadow: 0 4px 12px rgba(245, 101, 101, 0.4);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #edf2f7;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+  background: #e2e8f0;
+}
+
+.btn-small.btn-success {
+  background: #48bb78;
+  color: white;
+}
+
+.btn-small.btn-success:hover {
+  background: #38a169;
+}
+
+.cancellation-reason {
+  background: #fff5f5;
+  border-left: 4px solid #f56565;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #742a2a;
+  font-weight: 500;
+  margin: 0;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: #4a5568;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: #f7fafc;
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.error-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.error-container p {
+  color: #f56565;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.error-container button {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+  .order-detail-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .order-detail-card {
+    padding: 2.5rem;
+  }
+
+  .order-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

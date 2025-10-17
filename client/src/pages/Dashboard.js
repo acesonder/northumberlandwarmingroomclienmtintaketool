@@ -185,6 +185,12 @@ function Dashboard({ user }) {
           <Link to="/assessments/new" className="btn btn-primary">
             + New Assessment
           </Link>
+          <Link to="/harm-reduction" className="btn btn-primary" style={{ background: 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)' }}>
+            🏥 Harm Reduction Supplies
+          </Link>
+          <Link to="/harm-reduction/admin" className="btn btn-secondary">
+            Manage Harm Reduction
+          </Link>
           <Link to="/services" className="btn btn-secondary">
             View Services
           </Link>
